@@ -5,8 +5,8 @@ import "./EachUserProfile.scss";
 import User from "@/models/userModel";
 import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-DatabaseConnection();
 
 export default function EachUserProfile({ params }: any) {
   const [userData, setUserData] = useState({
@@ -14,19 +14,16 @@ export default function EachUserProfile({ params }: any) {
     username: ""
   });
 
-  const { profileUserId } = params;
+  const userId = params.profileUserId;
 
   const fetchUserData = async () => {
     try {
-      const user = await User.findOne({ _id: profileUserId });
-      if (!user) {
-        toast.error("User Not Found");
-        return;
+
+      let response = await axios.post("/api/users/me",{});
+      if(userId=== response.data.data._id){
+        setUserData(response.data.data)
       }
-      setUserData({
-        email: user.email,
-        username: user.username
-      });
+           
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -34,10 +31,11 @@ export default function EachUserProfile({ params }: any) {
 
   useEffect(() => {
     fetchUserData();
-  }, [profileUserId]);
+  }, [userId]);
 
   return (
     <div className="each-profile">
+    <p className="title">Your Profile</p>
       <p className="username">Username: {userData.username}</p>
       <p className="email">Email: {userData.email}</p>
     </div>
