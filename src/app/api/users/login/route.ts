@@ -3,6 +3,7 @@ import DatabaseConnection from "@/dbConnection/dbConnection";
 import bcrypt from "bcryptjs";
 import User from "@/models/userModel";
 import jwt from "jsonwebtoken";
+import { TokenGenerator } from "@/helpers/tokenGenerator";
 
 // Establish the database connection
 DatabaseConnection();

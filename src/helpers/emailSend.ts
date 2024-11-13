@@ -9,22 +9,22 @@ export const sendMail = async ({email , emailType , userId}:any)=>{
     if(emailType === "VERIFY"){
       //abo Verify Token and Expiry Date chai Database ma halne
 
-      let hashedToken = await bcrypt.hash(userId.toString(), 10);
+      // let hashedToken = await bcrypt.hash(userId.toString(), 10);
 
       await User.findByIdAndUpdate(userId,
-        {
+        { $set : {
           verifyToken : hashedToken,
           verifyTokenExpiry : Date.now() + 3600000
-        }
+        } }
       ) //id ko help le database ma user find garcha ani Update garcha 
     }
     else if(emailType === "RESET"){
 
       await User.findByIdAndUpdate(userId,
-        {
+       { $set : {
           forgotPasswordToken : hashedToken,
           forgotPasswordTokenExpiry : Date.now() + 3600000
-        }
+        } }
       )
     }
 
