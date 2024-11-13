@@ -1,0 +1,94 @@
+/* Body Styles */
+body {
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Verify Email Container */
+.verify-email {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  
+  h1 {
+    font-size: 1.5rem;
+    color: #212529; /* Dark gray */
+    margin-bottom: 20px;
+  }
+
+  .token {
+    font-size: 0.9rem;
+    color: green; 
+    margin-bottom: 15px;
+    word-wrap: break-word;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+
+  .verify-email {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .after-verification {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 1rem;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: black;
+    color: yellow;
+
+    a {
+      color: yellow;
+      text-decoration: underline;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: rgb(250, 160, 144);
+      }
+    }
+  }
+
+  .error-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: #fff;
+  }
+
+  .pending-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ffc107;
+    color: #212529;
+  }
+}
