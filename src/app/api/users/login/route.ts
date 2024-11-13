@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    //JWT ma payload means data
     const tokenData = {
       id : user._id,
       username : user.username,
