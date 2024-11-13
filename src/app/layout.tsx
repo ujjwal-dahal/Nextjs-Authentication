@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import "../../node_modules/react-toastify/dist/ReactToastify.css";
+
+import { Space_Grotesk } from 'next/font/google';
+
+// Load the font with specific weights and subsets
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'], 
+  weight: ['500'], 
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,7 +35,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={spaceGrotesk.className}>
+        <ToastContainer />
         {children}
       </body>
     </html>

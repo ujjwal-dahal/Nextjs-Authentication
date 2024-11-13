@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  font-family: 'Space Grotesk', sans-serif; 
+}
+
+.registration-page {
+  height: 60%;
+  width: 30%;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+
+  > p {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  > .username,
+  .email,
+  .password,
+  .register-btn {
+    height: 2.8rem;
+    width: 100%;
+    margin: 12px 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .username,
+  .email,
+  .password {
+    background-color: #f9f9f9;
+  }
+
+  .register-btn {
+    background-color: #f44336;
+    color: white;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+
+    &:disabled {
+      background-color: #d32f2f;
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      background-color: #e53935;
+      box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      background-color: #c62828;
+      box-shadow: 0 6px 15px rgba(244, 67, 54, 0.4);
+      transform: translateY(2px);
+    }
+  }
+
+  .below-btn {
+    display: flex;
+    gap: 7px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+
+    p {
+      color: #555;
+    }
+
+    a {
+      color: #f44336;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #c62828;
+      }
+    }
+  }
+
+  /* Input field focus effect */
+  .username:focus,
+  .email:focus,
+  .password:focus {
+    border-color: #f44336;
+    background-color: #fff8f7;
+    box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.registration-page {
+  animation: fadeIn 1s ease-in-out;
+}
