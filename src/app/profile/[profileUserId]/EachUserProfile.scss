@@ -1,0 +1,48 @@
+/* EachUserProfile.scss */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+}
+
+.each-profile {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 280px;
+  animation: fadeIn 0.5s ease-in-out;
+
+  .username,
+  .email {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 500;
+  }
+
+  .username {
+    color: #4a90e2;
+  }
+
+  .email {
+    color: #7b7b7b;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
