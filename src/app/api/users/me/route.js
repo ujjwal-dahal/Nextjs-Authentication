@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 import User from "@/models/userModel";
 import DatabaseConnection from "@/dbConnection/dbConnection";
 import { GetDataFromToken } from "@/helpers/getDataFromToken";
+import { writeFile } from "fs/promises";
 
 DatabaseConnection();
 
 export async function POST(request) {
+
   try {
     // Extract user ID from the token
     const userId = await GetDataFromToken(request);
