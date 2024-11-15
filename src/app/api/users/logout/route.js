@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 DatabaseConnection();
 
-export async function GET(request) {
+export async function GET() {
   try {
     // Create the response with a success message
     const response = NextResponse.json(
