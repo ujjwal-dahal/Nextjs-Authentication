@@ -25,7 +25,7 @@ export default function EachUserProfile({ params }) {
     try {
       const response = await axios.post("/api/users/me", {});
       if (response.data.data._id === userId) {
-        const imageUrlLocalStorage = localStorage.getItem(response.data.data.profileImage.publicId);
+        const imageUrlLocalStorage = localStorage.getItem(response.data.data._id );
         setUserData((prevData) => ({
           ...prevData,
           email: response.data.data.email,
@@ -82,7 +82,7 @@ export default function EachUserProfile({ params }) {
         }));
 
         // Store the image URL in localStorage to persist the state across sessions
-        localStorage.setItem(response.data.publicId, response.data.imageUrl);
+        localStorage.setItem(userId, response.data.imageUrl);
       }
     } catch (error) {
       toast.error("Failed to upload image. Please try again.");

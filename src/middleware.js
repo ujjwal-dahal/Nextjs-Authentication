@@ -5,8 +5,8 @@ export const middleware = (request) => {
   const path = request.nextUrl.pathname;
   const token = request.cookies.get("token")?.value || "";
 
-  // Redirect to login if the user tries to access profile without a token
-  if (!token && path === "/profile") {
+  // Redirect to login if the user tries to access profile or its sub-routes without a token
+  if (!token && path.startsWith("/profile")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
@@ -20,5 +20,5 @@ export const middleware = (request) => {
 
 // Define routes where the middleware should be applied
 export const config = {
-  matcher: ["/", "/login", "/register", "/verifyemail", "/profile"],
+  matcher: ["/", "/login", "/register", "/verifyemail", "/profile/:path*"],
 };
