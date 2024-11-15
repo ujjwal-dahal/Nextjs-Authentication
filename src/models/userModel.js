@@ -32,12 +32,14 @@ const userSchema = new mongoose.Schema({
   forgotPasswordToken : String,
   forgotPasswordTokenExpiry : Date,
   verifyToken : String,
-  verifyTokenExpiry : Date
+  verifyTokenExpiry : Date,
+
+  profileImage: { type: mongoose.Schema.Types.ObjectId, ref: "ProfileImage" },
 
 })
 
 
-const User = mongoose.models.users || mongoose.model("users", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 /*
 -> Eddi "users" name gareko Model baneko cha bhane feri model banaudaina
 -> mongoose.models.users means models haru ma bhaeko "users" model 
