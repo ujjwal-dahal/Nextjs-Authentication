@@ -15,30 +15,8 @@ export const middleware = (request) => {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // Check if user is verified only if they try to access the verifyemail page
-
-  //token cha tara pani verifyemail ma jancha bhane home page
-  if (token && path === "/verifyemail") {
-    const isUserVerified  = getUserVerificationStatus(token, request);
-
-    if (isUserVerified ) {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-  }
 };
 
-// Helper function to synchronously call an API route for verification status
-async function getUserVerificationStatus(token, request){
-  try {
-    const response = await axios.post("/api/users/verifyemail",{token})
-
-    const data = response.data;
-    return data?.isVerified || false;
-  } catch (error) {
-    console.error("Verification check failed:", error);
-    return false;
-  }
-}
 
 // Define routes where the middleware should be applied
 export const config = {

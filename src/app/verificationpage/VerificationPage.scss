@@ -14,34 +14,33 @@ body {
   min-height: 100vh;
 }
 
-.verify-email {
-  max-width: 400px;
-  width: 100%;
+.verification-page {
   background-color: #1b1b1b; 
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  color: #fff;
   text-align: center;
+  width: 100%;
+  max-width: 500px;
+  color: #fff;
+  animation: fadeIn 1s ease-in-out;
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #fff;
+    color: #00bcd4; 
   }
 
   p {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-bottom: 20px;
-    color: #fff;
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-bottom: 15px;
   }
 
-  .verify-email-btn {
-    width: 100%;
+  .check-email-btn {
     padding: 12px;
-    background-color: #00bcd4; 
+    background-color: #00bcd4;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -49,8 +48,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
-    margin-top: 15px;
-
+    
     &:hover {
       background-color: #0097a7;
       box-shadow: 0 4px 10px rgba(0, 151, 167, 0.3);
@@ -62,47 +60,15 @@ body {
       box-shadow: none;
     }
   }
-
-  .after-verification {
-    margin-top: 20px;
-
-    p {
-      font-size: 1.2rem;
-      color: #4caf50; 
-      font-weight: bold;
-    }
-
-    a {
-      color: #00bcd4;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #0097a7;
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .error-message {
-    margin-top: 20px;
-    color: #f44336; 
-    font-size: 1.2rem;
-  }
 }
-
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    transform: scale(0.95);
   }
   100% {
     opacity: 1;
+    transform: scale(1);
   }
-}
-
-.verify-email {
-  animation: fadeIn 1s ease-in-out;
 }

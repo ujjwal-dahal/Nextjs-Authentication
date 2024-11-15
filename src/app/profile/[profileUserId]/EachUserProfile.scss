@@ -1,35 +1,42 @@
-/* EachUserProfile.scss */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #0d0d0d; 
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
-  background-color: #f0f2f5;
-  font-family: Arial, sans-serif;
 }
 
 .each-profile {
-  background-color: #ffffff;
+  background-color: #1b1b1b; 
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #fff;
   text-align: center;
-  width: 280px;
+  width: 30%;
+  height: auto;
   animation: fadeIn 0.5s ease-in-out;
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #00bcd4; 
+  }
 
   .username,
   .email {
-    font-size: 1.1rem;
-    color: #333;
-    margin: 5px 0;
+    font-size: 1.2rem;
+    margin: 10px 0;
     font-weight: 500;
-  }
-
-  .title{
-    font-size: 2rem;
-    margin: 0 0;
   }
 
   .username {
@@ -37,7 +44,7 @@ body {
   }
 
   .email {
-    color: #7b7b7b;
+    color: #7b7b7b; 
   }
 }
 

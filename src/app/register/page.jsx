@@ -32,7 +32,8 @@ const Register = () => {
       const response = await axios.post("/api/users/register", userData);
       if (response.data) {
         console.log("Registration Successful", response.data);
-        router.push("/login");
+        toast.success("Registration Successfull")
+        router.push("/verificationpage");
       } else {
         toast.error("Registration Failed");
       }
