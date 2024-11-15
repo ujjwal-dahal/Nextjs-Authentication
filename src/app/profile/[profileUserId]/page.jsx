@@ -1,15 +1,14 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Image from "next/image";
-import defaultUser from "../.././../../public/images/defaultUser.avif";
+import defaultUser from "../../../../public/images/defaultUser.avif";
 import "./EachUserProfile.scss";
-import { use } from "react";
 
 export default function EachUserProfile({ params }) {
-  const wrappedParams = use(params)
+  const wrappedParams = use(params);
   const userId = wrappedParams.profileUserId;
 
   const [userData, setUserData] = useState({
@@ -21,15 +20,18 @@ export default function EachUserProfile({ params }) {
   const [imageName, setImageName] = useState("");
   const [image, setImage] = useState(null);
 
-  // Fetching user data
+  // Fetch user data, including profileImage URL
   const fetchUserData = async () => {
     try {
       const response = await axios.post("/api/users/me", {});
-      if (userId === response.data.data._id) {
-        setUserData({
-          ...response.data.data,
-          profileImage: response.data.data.profileImage || "",
-        });
+      if (response.data.data._id === userId) {
+        const imageUrlLocalStorage = localStorage.getItem(response.data.data.profileImage.publicId);
+        setUserData((prevData) => ({
+          ...prevData,
+          email: response.data.data.email,
+          username: response.data.data.username,
+          profileImage: imageUrlLocalStorage || defaultUser,
+        }));
       }
     } catch (error) {
       toast.error("Failed to fetch user data.");
@@ -68,15 +70,19 @@ export default function EachUserProfile({ params }) {
 
     try {
       const response = await axios.post("/api/users/upload-image", formData);
-
       if (response.data.success) {
         toast.success("File uploaded successfully!");
         setImage(null);
         setImageName("");
+
+        // Update the profileImage state with the new image URL
         setUserData((prevData) => ({
           ...prevData,
-          profileImage: response.data.imageData,
+          profileImage: response.data.imageUrl,
         }));
+
+        // Store the image URL in localStorage to persist the state across sessions
+        localStorage.setItem(response.data.publicId, response.data.imageUrl);
       }
     } catch (error) {
       toast.error("Failed to upload image. Please try again.");
