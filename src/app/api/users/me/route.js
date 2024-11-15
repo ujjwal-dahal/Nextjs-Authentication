@@ -1,11 +1,11 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import User from "@/models/userModel";
 import DatabaseConnection from "@/dbConnection/dbConnection";
 import { GetDataFromToken } from "@/helpers/getDataFromToken";
 
 DatabaseConnection();
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
     // Extract user ID from the token
     const userId = await GetDataFromToken(request);
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
       {
         error: error.message,
