@@ -7,9 +7,9 @@ import Link from "next/link";
 import "./VerifyEmail.scss";
 
 export default function VerifyEmail() {
-  const [token, setToken] = useState<string>(""); 
-  const [userVerified, setUserVerified] = useState<boolean>(false);
-  const [error , setError] = useState<boolean>(false) 
+  const [token, setToken] = useState(""); 
+  const [userVerified, setUserVerified] = useState(false);
+  const [error , setError] = useState(false) 
 
   const verifyClickBtn = async () => {
     
