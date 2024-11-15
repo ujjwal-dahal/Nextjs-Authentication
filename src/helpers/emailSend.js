@@ -3,8 +3,8 @@ import nodemailer from "nodemailer";
 import bcrypt from "bcryptjs";
 
 
-export const sendMail = async ({email , emailType , userId}:any)=>{
-  let hashedToken = await bcrypt.hash(userId.toString(), 10);
+export const sendMail = async ({email , emailType , userId})=>{
+  const hashedToken = await bcrypt.hash(userId.toString(), 10);
   try {
     if(emailType === "VERIFY"){
       //abo Verify Token and Expiry Date chai Database ma halne
@@ -62,7 +62,7 @@ export const sendMail = async ({email , emailType , userId}:any)=>{
 
     return mailResponse;
     
-  } catch (error : any) {
+  } catch (error ) {
 
     throw new Error(error.message)
     

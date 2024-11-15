@@ -11,14 +11,14 @@ import garda "@" le root directory i.e src bujincha
 
 import DatabaseConnection from "@/dbConnection/dbConnection";
 import User from "@/models/userModel";
-import {NextRequest , NextResponse} from "next/server";
+import { NextResponse} from "next/server";
 import bcrypt from "bcryptjs";
 import { sendMail } from "@/helpers/emailSend";
 
 DatabaseConnection(); //Abo Database Connect bhayo
 
 
-export async function POST(request : NextRequest){
+export async function POST(request){
 
   try {
 
@@ -34,7 +34,7 @@ export async function POST(request : NextRequest){
 
     //Check garne user alrady exist garcha ki gardaina
 
-    let existUser : any = await User.findOne({email}); //Email already chaki chaina
+    let existUser  = await User.findOne({email}); //Email already chaki chaina
 
     if(existUser){
       return NextResponse.json({error : "User Already Exist"},{status : 400});
@@ -79,7 +79,7 @@ export async function POST(request : NextRequest){
 
 
     
-  } catch (error : any) {
+  } catch (error ) {
 
     return NextResponse.json({error : error.message},{status : 500})
     

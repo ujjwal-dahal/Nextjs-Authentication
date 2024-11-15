@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/models/userModel.js", "src/helpers/tokenGenerator.ts", "src/app/register/page.jsx", "src/app/layout.tsx", "src/app/login/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/models/userModel.js", "src/helpers/tokenGenerator.ts", "src/app/register/page.jsx", "src/app/layout.tsx", "src/app/login/page.jsx", "src/app/api/users/logout/route.js", "src/app/api/users/me/route.js", "src/app/api/users/register/route.js", "src/app/api/users/verifyemail/route.js", "src/app/profile/[profileUserId]/page.jsx", "src/app/profile/page.jsx", "src/app/verifyemail/page.jsx", "src/helpers/emailSend.js", "src/helpers/getDataFromToken.js", "src/middleware.js"],
   "exclude": ["node_modules"]
 }

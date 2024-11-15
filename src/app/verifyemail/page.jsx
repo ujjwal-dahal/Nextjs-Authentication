@@ -19,7 +19,7 @@ export default function VerifyEmail() {
       toast.success("Verification Successful");
       setError(false)
       setUserVerified(true);
-    } catch (error: any) {
+    } catch (error) {
       setError(true)
       toast.error(error.message);
     }

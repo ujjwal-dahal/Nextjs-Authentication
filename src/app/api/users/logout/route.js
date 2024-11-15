@@ -1,9 +1,9 @@
 import DatabaseConnection from "@/dbConnection/dbConnection";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 DatabaseConnection();
 
-export async function GET(request: NextRequest) {
+export async function GET(request) {
   try {
     // Create the response with a success message
     const response = NextResponse.json(
@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     // Return the response
     return response;
 
-  } catch (error: any) {
+  } catch (error) {
     // Handle errors
     return NextResponse.json(
       {

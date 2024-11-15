@@ -1,7 +1,7 @@
 import axios from "axios";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 
-export const middleware = (request: NextRequest) => {
+export const middleware = (request) => {
   const path = request.nextUrl.pathname;
   const token = request.cookies.get("token")?.value || "";
 
@@ -19,7 +19,7 @@ export const middleware = (request: NextRequest) => {
 
   //token cha tara pani verifyemail ma jancha bhane home page
   if (token && path === "/verifyemail") {
-    const isUserVerified : any = getUserVerificationStatus(token, request);
+    const isUserVerified  = getUserVerificationStatus(token, request);
 
     if (isUserVerified ) {
       return NextResponse.redirect(new URL("/", request.url));
@@ -28,11 +28,11 @@ export const middleware = (request: NextRequest) => {
 };
 
 // Helper function to synchronously call an API route for verification status
-async function getUserVerificationStatus(token: string, request: NextRequest){
+async function getUserVerificationStatus(token, request){
   try {
     const response = await axios.post("/api/users/verifyemail",{token})
 
-    let data = response.data;
+    const data = response.data;
     return data?.isVerified || false;
   } catch (error) {
     console.error("Verification check failed:", error);

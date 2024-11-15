@@ -1,14 +1,12 @@
 "use client";
 
-import DatabaseConnection from "@/dbConnection/dbConnection";
 import "./EachUserProfile.scss";
-import User from "@/models/userModel";
 import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-export default function EachUserProfile({ params }: any) {
+export default function EachUserProfile({ params }) {
   const [userData, setUserData] = useState({
     email: "",
     username: ""
@@ -19,12 +17,12 @@ export default function EachUserProfile({ params }: any) {
   const fetchUserData = async () => {
     try {
 
-      let response = await axios.post("/api/users/me",{});
+      const response = await axios.post("/api/users/me",{});
       if(userId=== response.data.data._id){
         setUserData(response.data.data)
       }
            
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message);
     }
   };

@@ -1,10 +1,10 @@
 import DatabaseConnection from "@/dbConnection/dbConnection";
 import User from "@/models/userModel";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 DatabaseConnection();
 
-export async function POST(request : NextRequest){
+export async function POST(request){
   try {
 
     const reqBody = await request.json();
@@ -35,7 +35,7 @@ export async function POST(request : NextRequest){
     },{status : 200})
 
     
-  } catch (error : any) {
+  } catch (error) {
     return NextResponse.json({error : error.message},{status : 500})
     
   }

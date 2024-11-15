@@ -16,7 +16,7 @@ export default function ProfilePage() {
       const fetchedUserId = response.data.data._id;
       setUserId(fetchedUserId);
       console.log(fetchedUserId);
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message);
     }
   };
@@ -26,7 +26,7 @@ export default function ProfilePage() {
       await axios.get("/api/users/logout");
       toast.success("Logout Successfully");
       router.push("/");
-    } catch (error: any) {
+    } catch (error) {
       toast.error(error.message);
     }
   };
