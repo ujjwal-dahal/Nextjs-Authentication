@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "../../node_modules/react-toastify/dist/ReactToastify.css";
+import Navbar from "@/components/navbar/Navbar";
 
 import { Space_Grotesk } from 'next/font/google';
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       </head>
       <body className={spaceGrotesk.className}>
         <ToastContainer />
+        <Navbar />
         
         {children}
       </body>
