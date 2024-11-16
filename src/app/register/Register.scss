@@ -24,11 +24,19 @@ body {
   color: #fff;
   text-align: center;
 
+  
+
   p {
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
     color: #fff;
+  }
+
+  .error{
+    color: red;
+    font-size: 0.8rem;
+
   }
 
   input {

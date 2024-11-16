@@ -42,6 +42,21 @@ export default function EachUserProfile({ params }) {
     fetchUserData();
   }, [userId]);
 
+  const fetchUserImage = async ()=>{
+    try {
+      const getResponse = await axios.get("/api/users/upload-image");
+      const { imageUrl } = getResponse.data?.userData;
+      localStorage.setItem(userId , imageUrl)
+      
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  useEffect(()=>{
+    fetchUserImage();
+  },[])
+
   const handleFileChange = (event) => {
     const selectedImage = event.target.files?.[0];
     if (selectedImage) {

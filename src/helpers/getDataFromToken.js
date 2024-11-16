@@ -20,3 +20,5 @@ export const GetDataFromToken = (request) => {
     throw new Error(`Token verification failed: ${error.message}`);
   }
 };
+
+
