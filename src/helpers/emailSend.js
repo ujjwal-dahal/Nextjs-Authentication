@@ -8,7 +8,6 @@ export const sendMail = async ({email , emailType , userId})=>{
   try {
     if(emailType === "VERIFY"){
       //abo Verify Token and Expiry Date chai Database ma halne
-
       // let hashedToken = await bcrypt.hash(userId.toString(), 10);
 
       await User.findByIdAndUpdate(userId,
