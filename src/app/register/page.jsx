@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
+
 const Register = () => {
   const router = useRouter();
 
@@ -52,6 +53,7 @@ const Register = () => {
   }, [userData]);
 
   return (
+    <>
     <div className="registration-page">
       <p>Registration</p>
 
@@ -94,6 +96,7 @@ const Register = () => {
         <p>Already have an Account?</p> <Link href={"/login"}>Login</Link>
       </div>
     </div>
+    </>
   );
 };
 
