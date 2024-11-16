@@ -7,9 +7,12 @@ import Image from "next/image";
 import defaultUser from "../../../../public/images/defaultUser.avif";
 import "./EachUserProfile.scss";
 
+
 export default function EachUserProfile({ params }) {
   const wrappedParams = use(params);
   const userId = wrappedParams.profileUserId;
+
+
 
   const [userData, setUserData] = useState({
     email: "",
@@ -55,6 +58,7 @@ export default function EachUserProfile({ params }) {
 
   useEffect(()=>{
     fetchUserImage();
+    
   },[])
 
   const handleFileChange = (event) => {

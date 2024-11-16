@@ -4,6 +4,7 @@ import ProfileImage from "../../../../models/imageModel";
 import User from "../../../../models/userModel";
 import { UploadImage } from "../../../../lib/upload-image-cloudinary";
 import jwt from "jsonwebtoken";
+import defaultImage from "../../../../../public/images/defaultUser.avif"
 
 
 DatabaseConnection(); // Ensure database connection is initialized once
@@ -43,8 +44,10 @@ export const GET = async (request) => {
 
     // Structure the response
     const sendData = {
-      imageUrl: user.profileImage?.imageUrl || null,
+      imageUrl: user.profileImage?.imageUrl || defaultImage.src,
     };
+
+    console.log(defaultImage)
 
     return NextResponse.json({
       userData: sendData,
